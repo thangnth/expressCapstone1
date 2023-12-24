@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "4e3fe0e5-45b2-413f-b5ab-3f98aba4e97f",
+		"name": "API capstone1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31145982"
+	},
+	"item": [
+		{
+			"name": "Đăng Ký",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\" : \"Nguyễn Thị Hoa Thắng\",\n    \"email\" : \"thangnguyen@gmail.com\",\n    \"passWord\" : \"thangnguyen1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/auth/sign-up"
+			},
+			"response": []
+		},
+		{
+			"name": "Đăng Nhập",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"email\" : \"thangnguyen@gmail.com\",\n   \"pass_word\" : \"thangnguyen1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Danh sách hình ảnh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/img/get-images"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload hình",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjEsImtleSI6MTcwMzMxNDg4NTI5OH0sImlhdCI6MTcwMzMxNDg4NSwiZXhwIjoxNzA0MTc4ODg1fQ.9c-Out7UcdiGBw_8iaTUAEl2iAKOkuKS9XktCi0r3fM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/Users/hoathang/Desktop/Mèo CowBoy.jpeg"
+						},
+						{
+							"key": "img_name",
+							"value": "Meo0005",
+							"type": "text"
+						},
+						{
+							"key": "type_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Mèo Cowboy",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/img/upload-img"
+			},
+			"response": []
+		},
+		{
+			"name": "Tìm kiếm theo tên hình",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"img_name\" : \"Meo0001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/img/get-images-by-name"
+			},
+			"response": []
+		},
+		{
+			"name": "Xem chi tiết hình theo ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/img/get-image-by-id/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Danh sách comment hình theo ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/img/get-comment-by-img/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Kiểm tra hình đã lưu trong Collection",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjEsImtleSI6MTcwMzMxNDg4NTI5OH0sImlhdCI6MTcwMzMxNDg4NSwiZXhwIjoxNzA0MTc4ODg1fQ.9c-Out7UcdiGBw_8iaTUAEl2iAKOkuKS9XktCi0r3fM",
+						"type": "text"
+					}
+				],
+				"url": "localhost:8080/img/get-imgId/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Post comment hình",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjEsImtleSI6MTcwMzMxNDg4NTI5OH0sImlhdCI6MTcwMzMxNDg4NSwiZXhwIjoxNzA0MTc4ODg1fQ.9c-Out7UcdiGBw_8iaTUAEl2iAKOkuKS9XktCi0r3fM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"img_id\" : 1,\n    \"content\" : \"Great!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/img/post-comment"
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy thông tin user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjEsImtleSI6MTcwMzMxNDg4NTI5OH0sImlhdCI6MTcwMzMxNDg4NSwiZXhwIjoxNzA0MTc4ODg1fQ.9c-Out7UcdiGBw_8iaTUAEl2iAKOkuKS9XktCi0r3fM",
+						"type": "text"
+					}
+				],
+				"url": "localhost:8080/user/get-user-info"
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách hình đã lưu theo userID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjEsImtleSI6MTcwMzMxNDg4NTI5OH0sImlhdCI6MTcwMzMxNDg4NSwiZXhwIjoxNzA0MTc4ODg1fQ.9c-Out7UcdiGBw_8iaTUAEl2iAKOkuKS9XktCi0r3fM",
+						"type": "text"
+					}
+				],
+				"url": "localhost:8080/img/get-saved-img"
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách hình đã tạo theo userID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjEsImtleSI6MTcwMzMxNDg4NTI5OH0sImlhdCI6MTcwMzMxNDg4NSwiZXhwIjoxNzA0MTc4ODg1fQ.9c-Out7UcdiGBw_8iaTUAEl2iAKOkuKS9XktCi0r3fM",
+						"type": "text"
+					}
+				],
+				"url": "localhost:8080/img/get-created-img"
+			},
+			"response": []
+		},
+		{
+			"name": "Xoá hình đã tạo theo Id hinh",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjEsImtleSI6MTcwMzMxNDg4NTI5OH0sImlhdCI6MTcwMzMxNDg4NSwiZXhwIjoxNzA0MTc4ODg1fQ.9c-Out7UcdiGBw_8iaTUAEl2iAKOkuKS9XktCi0r3fM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"img_id\" : 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/img/delete-img"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "localhost"
+		}
+	]
+}
